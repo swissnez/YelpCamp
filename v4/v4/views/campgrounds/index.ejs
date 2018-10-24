@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+        <header class="jumbotron">
+            <div class="container">
+                <h1>This is the Campgrounds</h1>
+                <p>Some of the best campsite around!</p>
+                <p>
+                    <a href="/campgrounds/new"><button class="btn btn-primary btn-lg">Add New Campground</button></a>
+                </p>
+            </div>
+        </header>
+    
+    <h3>Our most popular sites</h3>
+    <div class="row" style="display: flex; flex-wrap: wrap">
+            <% campgroundsEjs.forEach(function(campground){ %>
+                <div class="col-md-3 col-sm-6">   
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <center><h4><%=campground.name %></h4></center>
+                        </div>
+                        <img src="<%=campground.image %>">
+                        <b> <%= campground.descriptions %> </b>
+                         <div style="width: 30%; margin:30px auto">
+                            <p>
+                                <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary"><b>More Info</b></a>        
+                             </p>
+                         </div>
+                    </div>
+                </div>
+            <% }); %>
+    </div> 
+</div>
+
+<% include ../partials/footer %>
